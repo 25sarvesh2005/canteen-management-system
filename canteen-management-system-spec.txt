@@ -1,0 +1,385 @@
+# Canteen Management System - Complete Specification with Developer Checklist
+
+## Project Overview
+Create a comprehensive Canteen Management System for a college with two distinct interfaces: a User Interface for students ordering food and an Admin Interface for the canteen staff to manage orders and inventory. The overall design should be clean, minimal, and feature gradient translucent colors.
+
+## Part 1: The Login & Authentication Flow
+Create a single, clean, and modern login page that serves as the entry point for both students (users) and the canteen administration.
+
+**Design:** The login page should have a clean layout with a blurred, gradient background.
+
+**Functionality:**
+- Include fields for "Username" and "Password."
+- Implement a toggle or switch component that allows users to seamlessly switch between "Student Login" and "Admin Login" modes.
+- Add a "Forgot Password?" link and a simple "Sign Up" option for new students.
+
+## Part 2: The User (Student) Interface
+This interface should be intuitive and engaging for students to order food effortlessly.
+
+### 1. The Dashboard / Home Page:
+- **Welcome Message:** A personalized greeting, such as "What are you craving today, [User's Name]?".
+- **Featured Items:** A horizontally scrolling section showcasing "Today's Specials" or "Most Popular Items."
+- **Quick Actions:** Buttons for "View Menu," "My Orders," and "My Stats."
+
+### 2. The Menu & Ordering Section:
+**Layout:** Display food items in a clean grid or list format. Each item should have:
+- A high-quality image.
+- Item name (e.g., "Samosa," "Vada Pav," "Masala Chai," "Cold Drink").
+- Price.
+- An estimated preparation time (e.g., "Ready in 5-7 mins").
+- A button to "Add to Cart."
+
+**Availability:** If an item is out of stock, it should be greyed out with an "Out of Stock" label. This should update in real-time based on the admin's inventory.
+
+**Shopping Cart:** A slide-in or pop-up cart that allows users to review their selected items, adjust quantities, and see the total bill before placing an order.
+
+### 3. "My Orders" - The History System:
+**Current Orders:** A dedicated section to show the status of active orders. Include:
+- The unique order token/number.
+- Order status (e.g., "Order Placed," "In the Kitchen," "Ready for Pickup").
+- A real-time countdown or progress bar based on the initial prep time estimate.
+
+**Past Orders:** A list of all previous orders, allowing users to easily re-order their favorites with a single click.
+
+### 4. The "My Stats" Gamified Dashboard:
+This section is designed to be fun and engaging.
+
+**Visualizations:** Use charts and graphs to show the user's ordering habits.
+- A pie chart of their "Most Ordered Items."
+- A bar graph showing their "Weekly Spending."
+
+**Calorie Tracker:**
+- Provide an estimated calorie count for each item.
+- Display a fun, visual representation of their total estimated calorie intake for the week (e.g., "You've consumed enough energy to power a rocket to the moon! (Just kidding, but here's your weekly total!)").
+- Include fun facts or healthy eating tips.
+
+## Part 3: The Admin (Canteen) Interface
+This interface needs to be highly functional and efficient for the canteen staff to manage operations smoothly.
+
+### 1. The Main Dashboard - Order Tickets:
+**Layout:** A multi-column layout (similar to a Kanban board) to display incoming orders as "tickets." The columns should be:
+- "New Orders": All incoming orders appear here with a timestamp. Each ticket should show the items ordered and the quantity.
+- "In Preparation": When the canteen staff starts preparing an order, they can drag-and-drop the ticket to this column.
+- "Ready for Pickup": Once the preparation is complete, the ticket moves here.
+
+**Ticket Functionality:**
+- Each new order ticket must automatically generate a unique token (e.g., #A123).
+- Admins must have a button on each ticket to "Start Prep" and "Mark as Ready."
+- When an order is marked as "Ready for Pickup," the system should automatically notify the user on their interface.
+
+### 2. Inventory Management:
+**Item List:** A table view of all available canteen items (Samosa, Vada, Chai, Cold Drink, etc.).
+
+**Quantity Control:**
+- Each item should have an editable "Current Quantity" field.
+- The system must automatically decrement the quantity of an item whenever an order is placed.
+- The canteen manager must be able to manually update the quantity at any time (e.g., when new stock arrives).
+- Implement a "low stock" alert (e.g., highlight the item in red) when the quantity drops below a certain threshold (e.g., 10).
+
+### 3. The AI-Powered Analytics Dashboard:
+This dashboard will provide insights to the canteen manager.
+
+**Sales Analytics:**
+- Display day-wise sales figures in a clean line or bar chart.
+- Show a "Best Selling Items" list for the day, week, and month.
+- Show "Peak Hours" of operation based on order volume.
+
+**Predictive Estimates:**
+- Using historical data, the AI should provide an "Estimated Demand for Tomorrow" for key items. For example: "Based on last week's trend, you can expect to sell around 80-100 Samosas tomorrow."
+- This will help the manager prepare ingredients and manage stock more effectively.
+
+### 4. Menu & Item Management:
+A simple interface for the admin to add new food items, update prices, change images, and modify estimated preparation times.
+
+---
+
+# DEVELOPER CHECKLIST
+
+## 🏗️ Project Setup & Architecture
+
+### Initial Setup
+- [ ] Initialize Next.js project with TypeScript
+- [ ] Set up Tailwind CSS with custom design tokens
+- [ ] Configure ESLint and Prettier
+- [ ] Set up Git repository with proper .gitignore
+- [ ] Create project folder structure (components, pages, lib, types, etc.)
+- [ ] Set up environment variables (.env.local template)
+
+### Database & Backend
+- [ ] Choose and set up database (Supabase/PostgreSQL recommended)
+- [ ] Design database schema:
+  - [ ] Users table (students and admins)
+  - [ ] Menu items table
+  - [ ] Orders table
+  - [ ] Order items table (junction table)
+  - [ ] Inventory table
+  - [ ] Analytics/stats table
+- [ ] Set up database migrations
+- [ ] Create database seed data for testing
+- [ ] Set up API routes structure
+- [ ] Implement database connection and ORM setup
+
+### Authentication System
+- [ ] Set up authentication provider (NextAuth.js or Supabase Auth)
+- [ ] Create user registration flow
+- [ ] Implement login/logout functionality
+- [ ] Set up role-based access control (student vs admin)
+- [ ] Create password reset functionality
+- [ ] Implement session management
+- [ ] Add authentication middleware for protected routes
+
+## 🎨 UI/UX Implementation
+
+### Design System
+- [ ] Create color palette with gradient translucent colors
+- [ ] Set up typography system
+- [ ] Create reusable UI components:
+  - [ ] Button variants
+  - [ ] Input fields
+  - [ ] Cards
+  - [ ] Modal/Dialog
+  - [ ] Loading states
+  - [ ] Toast notifications
+- [ ] Implement responsive design breakpoints
+- [ ] Create animation and transition utilities
+
+### Login & Authentication UI
+- [ ] Design and implement login page with blurred gradient background
+- [ ] Create toggle switch for Student/Admin login modes
+- [ ] Add form validation and error handling
+- [ ] Implement "Forgot Password" modal
+- [ ] Create student registration form
+- [ ] Add loading states for authentication actions
+
+## 👨‍🎓 Student Interface Development
+
+### Dashboard/Home Page
+- [ ] Create personalized welcome message component
+- [ ] Implement horizontal scrolling "Today's Specials" section
+- [ ] Add quick action buttons with proper navigation
+- [ ] Create responsive layout for mobile and desktop
+- [ ] Add skeleton loading states
+
+### Menu & Ordering System
+- [ ] Design and implement menu item grid/list layout
+- [ ] Create menu item card component with:
+  - [ ] Image optimization and lazy loading
+  - [ ] Price formatting
+  - [ ] Preparation time display
+  - [ ] Add to cart functionality
+- [ ] Implement real-time stock availability updates
+- [ ] Create shopping cart component:
+  - [ ] Slide-in/pop-up animation
+  - [ ] Quantity adjustment controls
+  - [ ] Total calculation
+  - [ ] Order placement functionality
+- [ ] Add search and filter functionality for menu items
+- [ ] Implement category-based menu organization
+
+### Order Management
+- [ ] Create "My Orders" page layout
+- [ ] Implement current orders section with:
+  - [ ] Order status tracking
+  - [ ] Real-time updates
+  - [ ] Progress indicators
+  - [ ] Countdown timers
+- [ ] Create order history component
+- [ ] Add re-order functionality
+- [ ] Implement order cancellation (if within time limit)
+
+### Gamified Stats Dashboard
+- [ ] Set up chart library (Chart.js or Recharts)
+- [ ] Create pie chart for "Most Ordered Items"
+- [ ] Implement bar graph for "Weekly Spending"
+- [ ] Add calorie tracking system:
+  - [ ] Calorie database for menu items
+  - [ ] Weekly calorie visualization
+  - [ ] Fun facts and tips generator
+- [ ] Create achievement/badge system
+- [ ] Add spending analytics and insights
+
+## 👨‍💼 Admin Interface Development
+
+### Order Management Dashboard
+- [ ] Create Kanban-style order board:
+  - [ ] Drag-and-drop functionality
+  - [ ] Real-time order updates
+  - [ ] Column-based status management
+- [ ] Implement order ticket component:
+  - [ ] Unique token generation
+  - [ ] Order details display
+  - [ ] Status update buttons
+- [ ] Add order filtering and search
+- [ ] Create order history and reporting
+- [ ] Implement bulk order operations
+
+### Inventory Management
+- [ ] Create inventory table/grid component
+- [ ] Implement quantity editing functionality
+- [ ] Add automatic stock deduction on orders
+- [ ] Create low stock alert system
+- [ ] Implement bulk inventory updates
+- [ ] Add inventory history tracking
+- [ ] Create stock replenishment notifications
+
+### Analytics Dashboard
+- [ ] Set up analytics data collection
+- [ ] Create sales charts and graphs:
+  - [ ] Daily/weekly/monthly sales
+  - [ ] Best-selling items
+  - [ ] Peak hours analysis
+- [ ] Implement AI-powered demand prediction:
+  - [ ] Historical data analysis
+  - [ ] Trend identification
+  - [ ] Tomorrow's demand estimates
+- [ ] Add export functionality for reports
+- [ ] Create customizable date range filters
+
+### Menu Management
+- [ ] Create menu item CRUD interface
+- [ ] Implement image upload functionality
+- [ ] Add price and preparation time management
+- [ ] Create menu category management
+- [ ] Implement menu item availability toggle
+- [ ] Add bulk menu operations
+
+## 🔄 Real-time Features
+
+### WebSocket/Real-time Updates
+- [ ] Set up WebSocket connection or Server-Sent Events
+- [ ] Implement real-time order status updates
+- [ ] Add real-time inventory updates
+- [ ] Create real-time notifications system
+- [ ] Implement live order tracking
+- [ ] Add real-time admin dashboard updates
+
+### Notification System
+- [ ] Create notification component
+- [ ] Implement push notifications (if PWA)
+- [ ] Add email notifications for order updates
+- [ ] Create in-app notification center
+- [ ] Add notification preferences
+
+## 🧪 Testing & Quality Assurance
+
+### Testing Setup
+- [ ] Set up Jest and React Testing Library
+- [ ] Create test utilities and mocks
+- [ ] Write unit tests for:
+  - [ ] Authentication functions
+  - [ ] Order management logic
+  - [ ] Inventory calculations
+  - [ ] Analytics functions
+- [ ] Write integration tests for:
+  - [ ] Order flow (student to admin)
+  - [ ] Inventory updates
+  - [ ] Real-time features
+- [ ] Add end-to-end tests with Playwright/Cypress
+- [ ] Set up test coverage reporting
+
+### Performance & Optimization
+- [ ] Implement image optimization
+- [ ] Add lazy loading for components
+- [ ] Optimize database queries
+- [ ] Implement caching strategies
+- [ ] Add performance monitoring
+- [ ] Optimize bundle size
+- [ ] Implement code splitting
+
+## 🚀 Deployment & DevOps
+
+### Deployment Setup
+- [ ] Set up production database
+- [ ] Configure environment variables for production
+- [ ] Set up CI/CD pipeline
+- [ ] Deploy to Vercel/Netlify or similar platform
+- [ ] Set up domain and SSL
+- [ ] Configure monitoring and logging
+
+### Security & Compliance
+- [ ] Implement input validation and sanitization
+- [ ] Add rate limiting for API endpoints
+- [ ] Set up CORS properly
+- [ ] Implement SQL injection prevention
+- [ ] Add XSS protection
+- [ ] Set up proper error handling (no sensitive data exposure)
+- [ ] Implement audit logging for admin actions
+
+## 📱 Progressive Web App (Optional)
+
+### PWA Features
+- [ ] Add service worker for offline functionality
+- [ ] Create app manifest
+- [ ] Implement push notifications
+- [ ] Add offline order queuing
+- [ ] Create app installation prompts
+
+## 📚 Documentation & Maintenance
+
+### Documentation
+- [ ] Create API documentation
+- [ ] Write user manuals for both interfaces
+- [ ] Document deployment process
+- [ ] Create troubleshooting guide
+- [ ] Add code comments and README
+
+### Maintenance Planning
+- [ ] Set up error monitoring (Sentry)
+- [ ] Create backup and recovery procedures
+- [ ] Plan for database maintenance
+- [ ] Set up analytics tracking
+- [ ] Create update and migration procedures
+
+## 🎯 Final Checklist
+
+### Pre-Launch
+- [ ] Complete user acceptance testing
+- [ ] Perform security audit
+- [ ] Load testing with expected user volume
+- [ ] Cross-browser compatibility testing
+- [ ] Mobile responsiveness testing
+- [ ] Accessibility compliance (WCAG)
+- [ ] Performance optimization verification
+
+### Launch Preparation
+- [ ] Create user onboarding flow
+- [ ] Prepare training materials for canteen staff
+- [ ] Set up customer support system
+- [ ] Plan rollout strategy
+- [ ] Prepare rollback procedures
+- [ ] Set up monitoring dashboards
+
+---
+
+## 🛠️ Recommended Tech Stack
+
+**Frontend:**
+- Next.js 14+ (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion (animations)
+- React Hook Form (forms)
+- Zustand or Redux Toolkit (state management)
+
+**Backend:**
+- Next.js API Routes
+- Supabase (database + auth + real-time)
+- Prisma (ORM alternative)
+
+**Real-time:**
+- Supabase Realtime
+- WebSocket API
+
+**Charts & Analytics:**
+- Recharts or Chart.js
+- Simple analytics calculations
+
+**Testing:**
+- Jest + React Testing Library
+- Playwright (E2E)
+
+**Deployment:**
+- Vercel (recommended for Next.js)
+- Supabase (database hosting)
+
+This comprehensive checklist ensures that every aspect of the Canteen Management System is properly planned, implemented, and tested before deployment.
