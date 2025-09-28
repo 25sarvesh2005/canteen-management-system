@@ -1,6 +1,6 @@
 # 🙏 छत्रपती शिवाजी महाराजांच्या प्रेरणेने - कॅन्टीन मॅनेजमेंट सिस्टम
 
-![Chhatrapati Shivaji Maharaj]()
+![Chhatrapati Shivaji Maharaj](https://github.com/25sarvesh2005/v0-canteen-management-system/blob/main/public/Screenshot%202025-09-28%20164220.png)
 
 ---
 
