@@ -1,30 +1,74 @@
-# Canteen management system
+# 🍴 Canteen Management System
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A **comprehensive digital solution** designed to streamline and automate the daily operations of a canteen.  
+The system eliminates inefficiencies like long queues, manual order processing, payment handling issues, and poor inventory management by providing a **modern, user-friendly, and efficient application**.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/25sarvesh2005s-projects/v0-canteen-management-system)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/6ldJOrH33Vx)
+---
 
-## Overview
+## 🚀 Tech Stack
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+- **Frontend:** [Flutter](https://flutter.dev/) – Cross-platform (Mobile, Web, Desktop) from a single codebase.  
+- **Backend:** [Node.js](https://nodejs.org/) + [Express](https://expressjs.com/) – Robust and scalable server-side environment.  
+- **Database:** [PostgreSQL](https://www.postgresql.org/) – Reliable relational database with strong data integrity.  
+- **Real-time Services:**  
+  - Firebase Realtime Database (live order status updates)  
+  - Firebase Cloud Messaging (push notifications)  
+- **Payments:** [Razorpay](https://razorpay.com/) – Secure, cashless transactions.  
+- **Version Control:** Git + Gitflow workflow  
+- **CI/CD:** [Codemagic](https://codemagic.io/) – Optimized CI/CD for Flutter apps  
 
-## Deployment
+---
 
-Your project is live at:
+## 📝 Problem Statement
 
-**[https://vercel.com/25sarvesh2005s-projects/v0-canteen-management-system](https://vercel.com/25sarvesh2005s-projects/v0-canteen-management-system)**
+College and office canteens often face:
+- Long waiting times due to manual order-taking and payments.  
+- Errors in managing high volumes of orders and inventory manually.  
+- Lack of centralized reporting systems for sales and inventory.  
+- Poor user experience due to outdated solutions lacking real-time tracking and secure payments.  
 
-## Build your app
+This project solves these issues by **automating the entire process from ordering to payments**, benefiting both customers and canteen staff.
 
-Continue building your app on:
+---
 
-**[https://v0.app/chat/projects/6ldJOrH33Vx](https://v0.app/chat/projects/6ldJOrH33Vx)**
+## 🎯 Objectives
 
-## How It Works
+- 📱 Develop a **cross-platform mobile app** for customers to browse menus, order, and pay online securely.  
+- 💻 Build a **web-based admin panel** for staff to manage menus, orders, inventory, and sales reports.  
+- 🔔 Implement **real-time order tracking** with push notifications.  
+- 💳 Integrate a **secure payment gateway (Razorpay)** for cashless transactions.  
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+---
+
+## 📦 Scope
+
+### Mobile Application (Customer-Facing)
+- User registration & login  
+- Menu browsing with item details & prices  
+- Order placement & customization  
+- Secure online payments  
+- Real-time order tracking  
+- Order history & reorder options  
+- User profile management  
+
+### Web Admin Panel (Canteen Staff)
+- Menu management (Add, Edit, Delete items)  
+- Order management (Track, Update status)  
+- Inventory management with low-stock alerts  
+- Sales reports & analytics  
+
+### Out of Scope
+- Delivery management  
+- Table reservations  
+- Third-party delivery integrations  
+
+---
+
+## 👥 Beneficiaries
+- 🎓 **Students & Employees** – Faster, cashless, and convenient canteen experience.  
+- 👨‍🍳 **Canteen Staff** – Simplified order & inventory management.  
+- 📊 **Admins/Owners** – Better decision-making with analytics and reports.  
+
+---
+
+
